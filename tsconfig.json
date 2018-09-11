@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "lib": ["es2015"],
+        "rootDir": "src",
+        "outDir": "dist",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "strict": false,
+        "declaration": true,
+        "allowJs": false,
+        "sourceMap": true,
+        "skipLibCheck": true,
+        "types": ["node"]
+    },
+    "filesGlob": [
+        "typings/index.d.ts",
+        "src/**/*.ts",
+        "src/**/*.tsx"
+    ],
+    "types": [
+    ],
+    "exclude": [
+        "android",
+        "ios",
+        "build",
+        "node_modules",
+        "./node_modules/*"
+    ],
+    "compileOnSave": true
+}
