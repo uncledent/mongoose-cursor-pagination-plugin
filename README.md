@@ -4,6 +4,10 @@ Cursor pagination plugin for mongoose
 
 [Based on](https://github.com/mixmaxhq/mongo-cursor-pagination)
 
+## Install
+
+```npm i mongoose-cursor-pagination-plugin --save```
+
 ## How to use:
 
 yourSchema.plugin(MongoPaging.mongoosePlugin);
