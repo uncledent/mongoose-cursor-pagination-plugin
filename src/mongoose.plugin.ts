@@ -7,7 +7,10 @@ import { find } from './find';
  * @param {Object} options
  * @param {string} options.name name of the function.
  */
-export function mongoosePlugin(schema, options) {
+export function mongoosePlugin(
+  schema: mongoose.Schema,
+  options?: { name?: string }
+) {
   /**
    * paginate function
    * @param {Object} param required parameter
