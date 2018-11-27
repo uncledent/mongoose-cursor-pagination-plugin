@@ -1,6 +1,6 @@
 {
   "name": "mongoose-cursor-pagination-plugin",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Mongoose cursor paginantion plugin",
   "main": "./dist/index.js",
   "scripts": {
