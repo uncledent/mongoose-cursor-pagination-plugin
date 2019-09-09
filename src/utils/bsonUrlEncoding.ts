@@ -1,4 +1,4 @@
-import * as EJSON from 'mongodb-extjson';
+const { EJSON } = require('bson');
 import * as base64url from 'base64-url';
 /**
  * These will take a BSON object (an database result returned by the MongoDB library) and

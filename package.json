@@ -1,6 +1,6 @@
 {
   "name": "mongoose-cursor-pagination-plugin",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Mongoose cursor paginantion plugin",
   "main": "./dist/index.js",
   "scripts": {
@@ -25,7 +25,7 @@
   "homepage": "https://github.com/uncledent/mongoose-cursor-pagination-plugin#readme",
   "dependencies": {
     "base64-url": "^2.2.0",
-    "mongodb-extjson": "^3.0.3",
+    "bson": "^4.0.2",
     "mongoose": "^5.1.7",
     "projection-utils": "^1.1.0",
     "underscore": "^1.9.1"
