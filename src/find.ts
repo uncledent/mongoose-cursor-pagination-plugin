@@ -25,6 +25,7 @@ import { query } from './utils/query';
  *    -before {String} The _id to start querying previous page.
  */
 export async function find(collection, params) {
+  const populateOptions = params.populate;
   const removePaginatedFieldInResponse =
     params.fields && !params.fields[params.paginatedField];
   params = _.defaults(await sanitizeParams(collection, params), {
@@ -35,12 +36,15 @@ export async function find(collection, params) {
   // Support both the native 'mongodb' driver and 'mongoist'. See:
   // https://www.npmjs.com/package/mongoist#cursor-operations
   const findMethod = collection.findAsCursor ? 'findAsCursor' : 'find';
+
   const results = await collection[findMethod](
     { $and: [cursorQuery, params.query] },
     params.fields
   )
+    .populate(populateOptions)
     .sort($sort)
     .limit(params.limit + 1); // Query one more element to see if there's another page.
+
   const response = query.prepareResponse(results, params);
   // Remove fields that we added to the query
   // (such as paginatedField and _id) that the user didn't ask for.

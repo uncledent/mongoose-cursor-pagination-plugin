@@ -2,36 +2,48 @@
 
 Cursor pagination plugin for mongoose
 
-[Based on](https://github.com/mixmaxhq/mongo-cursor-pagination)
+Based on this repository: [https://github.com/mixmaxhq/mongo-cursor-pagination](https://github.com/mixmaxhq/mongo-cursor-pagination)
 
 ## Install
 
-```npm i mongoose-cursor-pagination-plugin --save```
+`npm i mongoose-cursor-pagination-plugin --save`
 
 ## How to use:
 
 yourSchema.plugin(MongoPaging.mongoosePlugin);
 
-Initialize Your Schema
+### Initialize Your Schema
 
 ```js
 const MongoPaging = require('mongoose-cursor-pagination-plugin');
 const mongoose = require('mongoose');
-const counterSchema = new mongoose.Schema({ counter: Number });
+const booksSchema = new mongoose.Schema({ counter: Number });
 ```
 
-Plug the `mongoosePlugin`.
+### Plug the `mongoosePlugin`.
 
 ```js
 // this will add paginate function.
-counterSchema.plugin(MongoPaging.mongoosePlugin);
+booksSchema.plugin(MongoPaging.mongoosePlugin);
 
-const counter = mongoose.model('counter', counterSchema);
+const books = mongoose.model('books', booksSchema);
 
 // default function is "paginate"
-counter.paginate({ limit: 10 }).then(result => {
+books.paginate({ limit: 10, query: {
+    title: 'Book1';
+  }})
+  .then(result => {
   console.log(result);
 });
+```
+
+### to populate:
+
+```js
+books.paginate({ limit: 10, query: { title: 'Book1' }, populate: [{ path: 'author' }]  })
+  .then(result => {
+    console.log(result);
+  });
 ```
 
 Performs a find() query on a passed-in Mongo collection, using criteria you specify. The results
