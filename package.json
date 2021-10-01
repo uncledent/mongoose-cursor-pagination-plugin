@@ -26,9 +26,11 @@
   "dependencies": {
     "base64-url": "^2.3.3",
     "bson": "^4.5.2",
-    "mongoose": "^6.0.8",
     "projection-utils": "^1.1.0",
     "underscore": "^1.13.1"
+  },
+  "peerDependencies": {
+    "mongoose": "^6.0.8"
   },
   "devDependencies": {
     "@types/mongoose": "^5.11.97",
